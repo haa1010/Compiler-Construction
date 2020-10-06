@@ -1,0 +1,35 @@
+PROGRAM  EXAMPLE5;  (* Example 5 *)
+TYPE T = INTEGER;
+CONST N = 9;
+VAR  A : ARRAY(. 10 .) OF T;
+
+PROCEDURE INPUT;
+VAR I : INTEGER;
+    TMP : INTEGER;
+BEGIN
+  FOR I := 0 TO N DO
+     A(.I.) := READI;
+END;
+
+BEGIN
+VAR MAX : INTEGER;
+    IDX : INTEGER;
+
+MAX := A(.0.);
+IDX := 0;
+
+ FOR I := 1 TO N DO
+     BEGIN
+        If MAX < A(.I.) 
+        Then 
+          BEGIN  
+            MAX := A(.I.);
+            IDX := I;
+          END  
+     END
+
+CALL WRITEI(MAX);
+CALL WRITELN; 
+CALL WRITEI(IDX);
+CALL WRITELN; 
+END.  (* Example 5 *)
