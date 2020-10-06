@@ -1,35 +1,45 @@
 PROGRAM  EXAMPLE5;  (* Example 5 *)
 TYPE T = INTEGER;
-CONST N = 9;
+CONST N = 10;
 VAR  A : ARRAY(. 10 .) OF T;
+     I : INTEGER;
 
 PROCEDURE INPUT;
-VAR I : INTEGER;
-    TMP : INTEGER;
 BEGIN
-  FOR I := 0 TO N DO
+  FOR I := 1 TO N DO
      A(.I.) := READI;
 END;
 
-BEGIN
+
+FUNCTION FINDMAX : INTEGER;
 VAR MAX : INTEGER;
-    IDX : INTEGER;
-
 MAX := A(.0.);
-IDX := 0;
-
- FOR I := 1 TO N DO
+BEGIN
+    FOR I := 1 TO N DO
      BEGIN
         If MAX < A(.I.) 
-        Then 
-          BEGIN  
-            MAX := A(.I.);
-            IDX := I;
-          END  
+        Then MAX := A(.I.);
      END
+FINDMAX := MAX;
+END;
+
+
+BEGIN
+CALL INPUT;
+VAR MAX : INTEGER;
+
+MAX := FINDMAX;
 
 CALL WRITEI(MAX);
 CALL WRITELN; 
-CALL WRITEI(IDX);
-CALL WRITELN; 
+
+ FOR I := 1 TO N DO
+     BEGIN
+        If A(.I.) = MAX
+        Then 
+          BEGIN  
+            CALL WRITEI(I);
+            CALL WRITELN; 
+          END  
+     END
 END.  (* Example 5 *)
