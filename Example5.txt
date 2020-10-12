@@ -1,4 +1,4 @@
-PROGRAM  EXAMPLE5;  (* Example 5 *)
+PROGRAM  EXAMPLE5;  (* Example *)
 TYPE T = INTEGER;
 CONST N = 10;
 VAR  A : ARRAY(. 10 .) OF T;
@@ -10,25 +10,17 @@ BEGIN
      A(.I.) := READI;
 END;
 
-
-FUNCTION FINDMAX : INTEGER;
-VAR MAX : INTEGER;
-MAX := A(.0.);
-BEGIN
-    FOR I := 1 TO N DO
-     BEGIN
-        If MAX < A(.I.) 
-        Then MAX := A(.I.);
-     END
-FINDMAX := MAX;
-END;
-
-
 BEGIN
 CALL INPUT;
 VAR MAX : INTEGER;
 
-MAX := FINDMAX;
+MAX := A(.0.);
+BEGIN
+    FOR I := 2 TO N DO
+     BEGIN
+        If MAX < A(.I.) 
+        Then MAX := A(.I.);
+     END
 
 CALL WRITEI(MAX);
 CALL WRITELN; 
@@ -42,4 +34,4 @@ CALL WRITELN;
             CALL WRITELN; 
           END  
      END
-END.  (* Example 5 *)
+END.  (* Example *)

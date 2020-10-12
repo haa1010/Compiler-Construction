@@ -1,2 +1,8 @@
-prog1sss
-(*aaaaaaffffffffffffffffffffffffffffa*
+Program ExampleForError; (* ExampleForError 1 *)
+Var n123456789012345678 : Integer;
+Begin
+End. (* ExampleForError 1 *)
+
+
+
+
