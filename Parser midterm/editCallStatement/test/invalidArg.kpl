@@ -8,9 +8,9 @@ Function F(n : Integer) : Integer;
   End;
 
 Begin
-  For n :=  To 7 Do
+  For n := 1 To 7 Do
     Begin
-      Call WriteLn;
-      Call WriteI( F(i));
+      Call WriteLn 1;
+      Call WriteI( F(i);
     End;
 End. (* Factorial *)
