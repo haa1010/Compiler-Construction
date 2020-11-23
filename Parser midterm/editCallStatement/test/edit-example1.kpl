@@ -1,0 +1,7 @@
+Program Example1; (* Example 1 *)
+Begin
+   BEGIN
+        WRITEI(A(.I.));
+        WRITELN;
+     END
+End. (* Example 1 *)
