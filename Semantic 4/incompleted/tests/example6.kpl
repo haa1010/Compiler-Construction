@@ -1,0 +1,28 @@
+Program Example6;
+   Const c1 = 10;
+  	 c2 = 'a';
+   Type t1 = array(. 10 .) of integer;
+   Var v1 : integer;
+       v2 : Array(. 10 .) of t1;
+       v10: ARRAY (. 10 .) of char;
+
+   Function F(p1 : Integer; Var p2 : char) : integer;
+     Begin
+       f := c1;
+     End;
+
+   procedure p(v1 : integer; v9: char);
+     const c1 = 'a';
+           c3 = 10;
+     type t1 = integer;
+          t2 = array(. 10 .) of t1;
+     var v2 : t2;
+         v3 : char;
+     begin
+     v10(.1.):='a';
+	v3 := 'a';
+       v1:= f(1, c2);
+     end;
+Begin
+     call p(c1, c2);
+End.

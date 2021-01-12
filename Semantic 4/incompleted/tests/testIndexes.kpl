@@ -1,0 +1,59 @@
+PROGRAM  EXAMPLE4;  (* Example 4 *)
+tYPE T = INTEGER;
+VAR  A : ARRAY(. 10 .) of ARRAY (.10.) OF char;
+
+Begin
+A(.10.)(.10.) := 'b';
+end.
+
+(*
+tham so hinh thuc va tham so thuc su, thua hoac co -- Nếu tham số hình thức là tham biến thì tham số thực sự phải là một LValue
+tham so cua mang --- index phải là integer 
+tham bien cua ham --- parameter
+
+kieu ki tu dung trong truong hop nao
+1 bieu thuc co tra ve kieu ki tu dc ko? --- Yes 
+check trong danh sach tham so hinh thuc & return type cua ham(basic type)
+
+tham so hinh thuc va tham so thuc su phai cung kieu 
+
+REPORT
+- 10 trang
+- mô tả compiler có gì - 1 sơ đồ
+- lexical analysis - mô tả chi tiết luôn - làm gì, công việc chính mình cần phải làm, loại kí tự k cần thiết, nhận biết từ tố, err handling.
+ + mô tả tokenofkpl : token gồm những cái j, khai báo như nào, mô tả bảng mã ascii, k cần viết cả bảng charcode mà chỉ viết dùng để làm gì ( tiết kiệm k gian nhớ)
+ + kết hợp mô tả ,cấu trúc dữ liệu ,các hàm cơ bản skipcomment, 
+- part of parser: là gì (mô tả), rrecursive parsing (mo tả, nhấn mạnh văn phạm là gì : almost LL1, k đưa sơ đồ cú pháp, đưa vào 1 ví dụ thoả mãn LL1- trong bài lí thuyết, trong số những sx vi phạm LL1 
+(factor- cần chuyển đổi ntn ms làm dc, nhánh bắt đầu = ident nhưng tên hàm có tham số, tên biến có chỉ số sẽ bị vi phamj 
+-> id, id of arg, list of indexes, xử lí như LL2 như nào, chỉ ra văn phạm thích hợp vs pp LL1), minh hoạ LL1 (VD : Statement là sx thực sự suy ra epsilon (arg cx dc nhưng khó hơn)
+- epsilon phải tính follow vì follow đại diện cho nhánh epsilon,đưa ra ví dụ nếu k tính follow thì program đúng có thể sai, invalidstatement
+- k cần compileBlock,....)
+- giới thiệu pp đệ quy trên xuống, đưa ra basictype, constant,... ví dụ điển hinfh về sx LL1 )
+
+- semantic analysis : kết hợp ngay ở mô tả lexical,
+scope management và typechecking
+- mô tả symbol table đầu tiên
+thuộc tính của định danh
+nội dung về vị trí để chô nào, symtab mô tả gì, cấu trúc: prog, currentscope, globalObjlist, có thể sử dụng mà k cần khai báo, 
+mô tả thuộc tính  lưu trữ trong từng loại đối tượng: type, constant, ...
+mô tả về các hàm, k cần list ra toàn bộ obj, đưa ra 1 ví dụ điển hình, trong enterblock cần j, create obj j đấy, đưa ra 1 hàm thể hiện thêm đối tượng mới ntn
+nên giới thiệu hàm thêm tham số ms, trong 2 danh sách objlist vs paramlist
+- makeinttpye , char,.. k cần giới thiệu
+-scopemanagement:
+1 ident sd thì phải khai báo
+luật phạm vi gần nhất: (trong slide)
+checkfreshident : trong 1 phamh vi (scope) k dc phép dùng 2 ident giống nhau ( check khi khai báo) + mô tả findobj
+check khi sd: muốn sd thì phải khai báo : lookupobj
+checkdeclareofident (compile factor, dùng nhiều loại ident khác nhau), var  (compileforstatement)dùng khi nào
+checkLvalue: trong TH vế trái là hàm, cần check tên hamf = owner của phạm vi
+typechecking: type of system : từ những elements-nguyên tố (basic type(int, char), kiểu trỏ = định danh, structuretype = array): lưu như nào, mô tả
+checkdeclare of procedure
+mô tả kiểm tra kiểu trong các lệnh, lệnh gán: vế trái compiletype trả ra 1 kiểu, thể hiện thuộc tính typefvees phải compile expression (có thể là kí tự, số)
+lệnhj if và while khi kiểm tra kiểu: dúng về kiểu khi điều kiện đúng về kiểu và statement ở bên trong cũng đúng về kiểu, check điểu kiênj
+1 phép so ssánh 2 bên nhận cùng kiểu
+for : thực chất là lệnh gán, thoả mãn kiểu cho statement, biến điều khiển ct cùng kiểu vs biểu thức 1 và 2
+typechecking in array vs arg: check số chiều của arr, đưa compile indexes, khi khai báo và sd tham số cần kiểm tra ntn, 2 TH: thừa vs thiếu tham số, hàm k có tham số k có ( )
+thừa: trong list of arg còn thừa dấu , trong khi listparam thì rỗng
+thiếu: trong list of arg hết dấu , trong khi listparam thì còn
+
+*)
