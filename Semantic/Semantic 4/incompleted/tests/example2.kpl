@@ -1,0 +1,25 @@
+Program Example2; (* Factorial *)
+Var 
+ n : char;
+    a : ARRAY (.10.) OF INTEGER;
+    b : ARRAY (.10.) OF INTEGER;
+
+Function F(n : Integer) : Integer;
+  Begin
+    If n = 0 Then F := 1 Else F := N * F (N - 1);
+  End;
+
+Begin
+  For n := 'a' To 'z' Do
+    Begin
+      Call WriteLn;
+      Call WriteI( F(3));
+    End;
+End. (* Factorial 
+invalidstatement : then : 
+comparator: if 1
+const: const a = *
+term: if n:
+type: type t  = *
+factor: if n+:
+*)
